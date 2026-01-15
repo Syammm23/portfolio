@@ -43,7 +43,7 @@ function App() {
         <div className="profile-section">
           <div className="img-container">
             {/* Make sure photo is in public folder */}
-            <img src="myphoto/Syam01.jpg" alt="Syam Kumar Prasad" className="profile-img" />
+            <img src="/Syam01.jpg" alt="Syam Kumar Prasad" className="profile-img" />
           </div>
           <h1>Syam Kumar Prasad</h1>
           <p className="tagline">BCA Student | Analyst</p>
