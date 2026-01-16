@@ -69,11 +69,15 @@ function App() {
             <span>GitHub</span>
           </a>
 
-          <a href="https://instagram.com/your_username" target="_blank" rel="noreferrer" className="side-link">
-            <div className="icon-box insta-icon"><i className="fab fa-instagram"></i></div>
-            <span>Instagram</span>
-          </a>
+          <a href="https://instagram.com/mr.syamm" target="_blank" rel="noreferrer" className="side-link">
+  <div className="icon-box insta-icon"><i className="fab fa-instagram"></i></div>
+  <span>Instagram</span>
+</a>
 
+<a href="https://www.linkedin.com/in/syam-kumar-prasad-710183307" target="_blank" rel="noreferrer" className="side-link">
+  <div className="icon-box linkedin-icon"><i className="fab fa-linkedin-in"></i></div>
+  <span>LinkedIn</span>
+</a>
           <a href="https://facebook.com/your_username" target="_blank" rel="noreferrer" className="side-link">
             <div className="icon-box fb-icon"><i className="fab fa-facebook-f"></i></div>
             <span>Facebook</span>
