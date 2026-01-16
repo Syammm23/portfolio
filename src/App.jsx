@@ -191,7 +191,7 @@ function App() {
           <div className="grid-container">
             <div className="glass-card project-card">
               <div className="card-icon"><i className="fas fa-robot"></i></div>
-              <h3>Jarvis AI Assistant</h3>
+              <h3>Annie AI Assistant</h3>
               <p>A Python-based desktop voice assistant created to automate daily PC tasks and retrieve information.</p>
             </div>
             
