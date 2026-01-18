@@ -74,19 +74,15 @@ function App() {
   <span>Instagram</span>
 </a>
 
-<a href="https://www.linkedin.com/in/syam-kumar-prasad-710183307" target="_blank" rel="noreferrer" className="side-link">
+<a href="https://www.linkedin.com/in/syammprasad" target="_blank" rel="noreferrer" className="side-link">
   <div className="icon-box linkedin-icon"><i className="fab fa-linkedin-in"></i></div>
   <span>LinkedIn</span>
 </a>
-          <a href="https://facebook.com/your_username" target="_blank" rel="noreferrer" className="side-link">
+          <a href="https://facebook.com/Mr.syamm" target="_blank" rel="noreferrer" className="side-link">
             <div className="icon-box fb-icon"><i className="fab fa-facebook-f"></i></div>
             <span>Facebook</span>
           </a>
           
-          <a href="https://twitter.com/your_username" target="_blank" rel="noreferrer" className="side-link">
-            <div className="icon-box x-icon"><i className="fab fa-x-twitter"></i></div>
-            <span>Twitter / X</span>
-          </a>
         </div>
       </aside>
 
