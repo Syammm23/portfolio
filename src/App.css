@@ -24,7 +24,8 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --transition: 0.34s var(--ease);
 
-  --shell: 1180px;
+  --shell: 1320px;
+  --gutter: clamp(18px, 4vw, 32px);
   --nav-h: 72px;
 
   --font-display: "Sora", "Poppins", system-ui, sans-serif;
@@ -155,7 +156,11 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 0 clamp(18px, 4vw, 44px);
+  /* Line the bar up with .shell instead of running edge to edge: on a wide
+     screen a full-bleed nav over a centred 1320px column reads as if the
+     page does not fit the display. max() keeps it sane once the viewport is
+     narrower than the shell. */
+  padding-inline: max(var(--gutter), calc((100% - var(--shell)) / 2 + var(--gutter)));
   transition: var(--transition);
 }
 
@@ -336,7 +341,7 @@ body {
   z-index: 1;
   max-width: var(--shell);
   margin: 0 auto;
-  padding: 0 clamp(18px, 4vw, 32px);
+  padding: 0 var(--gutter);
 }
 
 section {
@@ -526,7 +531,7 @@ section {
 
 .avatar-wrap {
   position: relative;
-  width: clamp(220px, 26vw, 310px);
+  width: clamp(220px, 26vw, 340px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
