@@ -29,6 +29,16 @@ const SECTION_IDS = sections.map((s) => s.id);
 const scrollTo = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
+/* The site is served from a subpath (/portfolio/ on GitHub Pages). Vite
+   rewrites asset URLs it can see in HTML, CSS and imports, but paths written
+   as plain strings in content.js are runtime values it never touches — so
+   "/photo.webp" would resolve against the domain root and 404 in production.
+   Resolving against BASE_URL here keeps content.js free of build details. */
+const asset = (path) => {
+  if (!path || /^(https?:)?\/\//i.test(path) || path.startsWith("data:")) return path;
+  return `${import.meta.env.BASE_URL}${String(path).replace(/^\/+/, "")}`;
+};
+
 /* Renders **bold** markers from the content file as <strong>. */
 function RichText({ children }) {
   const parts = String(children).split(/(\*\*[^*]+\*\*)/g);
@@ -51,11 +61,11 @@ function BrandMark() {
   if (brand.type === "none") return null;
 
   if (brand.type === "photo") {
-    return <img className="brand-mark brand-photo" src={profile.avatar} alt="" aria-hidden="true" />;
+    return <img className="brand-mark brand-photo" src={asset(profile.avatar)} alt="" aria-hidden="true" />;
   }
 
   if (brand.type === "logo" && brand.logo) {
-    return <img className="brand-mark brand-photo" src={brand.logo} alt="" aria-hidden="true" />;
+    return <img className="brand-mark brand-photo" src={asset(brand.logo)} alt="" aria-hidden="true" />;
   }
 
   return (
@@ -221,7 +231,7 @@ function Hero({ totalLabel }) {
             <i className="fas fa-folder-open" /> View My Work
           </button>
           {profile.resume && (
-            <a className="btn btn-ghost" href={profile.resume} download>
+            <a className="btn btn-ghost" href={asset(profile.resume)} download>
               <i className="fas fa-download" /> Resume
             </a>
           )}
@@ -249,7 +259,7 @@ function Hero({ totalLabel }) {
         <div className="avatar-wrap">
           <span className="avatar-glow" aria-hidden="true" />
           <span className="avatar-ring" aria-hidden="true" />
-          <img src={profile.avatar} alt={profile.name} className="avatar-img" />
+          <img src={asset(profile.avatar)} alt={profile.name} className="avatar-img" />
         </div>
 
         {profile.heroChips.map((chip, i) => (
@@ -437,7 +447,7 @@ function Projects() {
           >
             {project.image && (
               <div className="project-shot">
-                <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+                <img src={asset(project.image)} alt={`${project.title} screenshot`} loading="lazy" />
               </div>
             )}
 
